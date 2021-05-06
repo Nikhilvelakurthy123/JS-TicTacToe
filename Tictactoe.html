@@ -1,0 +1,353 @@
+<html>
+    <head>
+        <!--<meta http-equiv="refresh" content="1" >refresh the page for every 1sec -->
+        <title>tictactoe</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<style>
+		.button{
+			width:100%;
+		}
+		</style>
+    </head>
+    <body onload="count()">
+        <div>
+            <h1> TIC TAC TOE </h1>
+            <form>
+                <table>
+                    <tr>
+                        <td>
+                            <input type="button" value="neww" onclick="fresh()" id="f">
+                            <input type="button" value="began" onclick="start()" id="s">
+                            <input type="button" value="end"  onclick="end()" id="e">
+                        </td>
+                    </tr>
+                </table>
+                <table align="center" border="1">
+                    <tr>
+                        <td>
+                            <input type="button" value="    " id="0" onclick="mission(this.id)">
+                        </td>
+                        <td>
+                            <input type="button" value="    " id="1" onclick="mission(this.id)">
+                        </td>
+                        <td>
+                            <input type="button" value="    " id="2" onclick="mission(this.id)">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="button" value="    " id="3" onclick="mission(this.id)">
+                        </td>
+                        <td>
+                            <input type="button" value="    " id="4" onclick="mission(this.id)">
+                        </td>
+                        <td>
+                            <input type="button" value="    " id="5" onclick="mission(this.id)">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="button" value="    " id="6" onclick="mission(this.id)">
+                        </td>
+                        <td>
+                            <input type="button" value="    " id="7" onclick="mission(this.id)">
+                        </td>
+                        <td>
+                            <input type="button" value="    " id="8" onclick="mission(this.id)">
+                        </td>
+                    </tr>
+                    
+                </table>
+                <p id="winner"></p>
+            </form>
+            <p id="count" ></p>
+            <button onclick="clickme()" hidden value="count">count</button>
+            
+        </div>
+        <script>
+            var c = 0;
+            function count()
+            {
+                for(var i =0 ; i<9 ; i++)
+                 {
+                    document.getElementById(i).disabled =true ;
+                 }
+                c++;
+            }
+            
+            function fresh()
+            {
+                window.location.reload();
+            }
+            var cc = 0;
+            function clickme()
+            {
+                cc++;
+                document.getElementById("count").innerHTML = cc;
+            }
+            function start()
+            {
+                //alert("hai");
+                document.getElementById("s").disabled =true ;
+                document.getElementById("e").disabled =false ;
+                for(var i =0 ; i<9 ; i++)
+                 {
+                    document.getElementById(i).disabled = false ;
+                 }
+                
+            }
+            function end()
+            {
+                
+                //alert("hai end");
+                document.getElementById("e").disabled = true;
+                document.getElementById("s").disabled = false;
+                window.location.reload();
+                //window.location.replace("http://localhost:8383/Web%20based/Tictactoe.html");
+            }
+            
+            var b=0;
+            var d = [];
+            var check=0;
+            
+            function mission(e)
+            {
+                b++;
+                
+                //alert(e);
+                if(b==1)
+                {
+                 for(var i =0 ; i<9 ; i++)
+                 {
+                    d[i] = "-1";
+                 }
+                }
+                i = 0;
+                if(b%2!=0)
+                {
+                    document.getElementById("winner").innerHTML = "o's turn";
+                    document.getElementById(e).value = "x";
+                    d[parseInt(e)] = document.getElementById(e).value;
+                    document.getElementById(e).disabled = true;
+                    
+                    if(d[0] =="x" && d[1] == "x" && d[2] == "x")
+                    {
+                      alert("winner is the player who choosen x");
+                      dis();check++;
+                      document.getElementById("winner").innerHTML = "X is the winner . press neww to start new game ";
+                    }
+                    else if(d[3] =="x" && d[4] == "x" && d[5] == "x")
+                    {
+                      alert("winner is the player who choosen x");
+                      dis();check++;
+                      document.getElementById("winner").innerHTML = "X is the winner . press neww to start new game ";
+                    }
+                    else if(d[6] =="x" && d[7] == "x" && d[8] == "x")
+                    {
+                      alert("winner is the player who choosen x");
+                      dis();check++;
+                      document.getElementById("winner").innerHTML = "X is the winner . press neww to start new game ";
+                    }
+                    else if(d[0] =="x" && d[3] == "x" && d[6] == "x")
+                    {
+                      alert("winner is the player who choosen x");
+                      dis();check++;
+                      document.getElementById("winner").innerHTML = "X is the winner . press neww to start new game ";
+                    }
+                    else if(d[1] =="x" && d[4] == "x" && d[7] == "x")
+                    {
+                      alert("winner is the player who choosen x");
+                      dis();check++;
+                      document.getElementById("winner").innerHTML = "X is the winner . press neww to start new game ";
+                    }
+                    else if(d[2] =="x" && d[5] == "x" && d[8] == "x")
+                    {
+                      alert("winner is the player who choosen x");
+                      dis();check++;
+                      document.getElementById("winner").innerHTML = "X is the winner . press neww to start new game ";
+                    }
+                    else if(d[0] =="x" && d[4] == "x" && d[8] == "x")
+                    {
+                      alert("winner is the player who choosen x");
+                      dis();check++;
+                      document.getElementById("winner").innerHTML = "X is the winner . press neww to start new game ";
+                    }
+                    else if(d[2] =="x" && d[4] == "x" && d[6] == "x")
+                    {
+                      alert("winner is the player who choosen x");
+                      dis();check++;
+                      document.getElementById("winner").innerHTML = "X is the winner . press neww to start new game ";
+                    }
+                    else if(d[0] =="o" && d[1] == "o" && d[2] == "o")
+                    {
+                      alert("winner is the player who choosen o");
+                      dis();check++;
+                      document.getElementById("winner").innerHTML = "o is the winner . press neww to start new game ";
+                    }
+                    else if(d[3] =="o" && d[4] == "o" && d[5] == "o")
+                    {
+                      alert("winner is the player who choosen o");
+                      dis();check++;
+                      document.getElementById("winner").innerHTML = "o is the winner . press neww to start new game ";
+                    }
+                    else if(d[6] == "o" && d[7] == "o" && d[8] == "o")
+                    {
+                      alert("winner is the player who choosen o");
+                      dis();check++;
+                      document.getElementById("winner").innerHTML = "o is the winner . press neww to start new game ";
+                    }
+                    else if(d[0] =="o" && d[3] == "o" && d[6] == "o")
+                    {
+                      alert("winner is the player who choosen o");
+                      dis();check++;
+                      document.getElementById("winner").innerHTML = "o is the winner . press neww to start new game ";
+                    }
+                    else if(d[1] =="o" && d[4] == "o" && d[7] == "o")
+                    {
+                      alert("winner is the player who choosen o");
+                      dis();check++;
+                      document.getElementById("winner").innerHTML = "o is the winner . press neww to start new game ";
+                    }
+                    else if(d[2] =="o" && d[5] == "o" && d[8] == "o")
+                    {
+                      alert("winner is the player who choosen o");
+                      dis();check++;
+                      document.getElementById("winner").innerHTML = "o is the winner . press neww to start new game ";
+                    }
+                    else if(d[0] =="o" && d[4] == "o" && d[8] == "o")
+                    {
+                      alert("winner is the player who choosen o");
+                      dis();check++;
+                      document.getElementById("winner").innerHTML = "o is the winner . press neww to start new game ";
+                    }
+                    else if(d[2] =="o" && d[4] == "o" && d[6] == "o")
+                    {
+                      alert("winner is the player who choosen o");
+                      dis();check++;
+                      document.getElementById("winner").innerHTML = "o is the winner . press neww to start new game ";
+                    }
+                }
+                else
+                {
+                    document.getElementById("winner").innerHTML = "x's turn";
+                    document.getElementById(e).value = "o";
+                    d[parseInt(e)] = document.getElementById(e).value;
+                    document.getElementById(e).disabled = true;
+                    
+                    if(d[0] =="x" && d[1] == "x" && d[2] == "x")
+                    {
+                      alert("winner is the player who choosen x");
+                      dis();check++;
+                      document.getElementById("winner").innerHTML = "X is the winner . press neww to start new game ";
+                    }
+                    else if(d[3] =="x" && d[4] == "x" && d[5] == "x")
+                    {
+                      alert("winner is the player who choosen x");
+                      dis();check++;
+                      document.getElementById("winner").innerHTML = "X is the winner . press neww to start new game ";
+                    }
+                    else if(d[6] =="x" && d[7] == "x" && d[8] == "x")
+                    {
+                      alert("winner is the player who choosen x");
+                      dis();check++;
+                      document.getElementById("winner").innerHTML = "X is the winner . press neww to start new game ";
+                    }
+                    else if(d[0] =="x" && d[3] == "x" && d[6] == "x")
+                    {
+                      alert("winner is the player who choosen x");
+                      dis();check++;
+                      document.getElementById("winner").innerHTML = "X is the winner . press neww to start new game ";
+                    }
+                    else if(d[1] =="x" && d[4] == "x" && d[7] == "x")
+                    {
+                      alert("winner is the player who choosen x");
+                      dis();check++;
+                      document.getElementById("winner").innerHTML = "X is the winner . press neww to start new game ";
+                    }
+                    else if(d[2] =="x" && d[5] == "x" && d[8] == "x")
+                    {
+                      alert("winner is the player who choosen x");
+                      dis();check++;
+                      document.getElementById("winner").innerHTML = "X is the winner . press neww to start new game ";
+                    }
+                    else if(d[0] =="x" && d[4] == "x" && d[8] == "x")
+                    {
+                      alert("winner is the player who choosen x");
+                      dis();check++;
+                      document.getElementById("winner").innerHTML = "X is the winner . press neww to start new game ";
+                    }
+                    else if(d[2] =="x" && d[4] == "x" && d[6] == "x")
+                    {
+                      alert("winner is the player who choosen x");
+                      dis();check++;
+                      document.getElementById("winner").innerHTML = "X is the winner . press neww to start new game ";
+                    }
+                    else if(d[0] =="o" && d[1] == "o" && d[2] == "o")
+                    {
+                      alert("winner is the player who choosen o");
+                      dis();check++;
+                      document.getElementById("winner").innerHTML = "o is the winner . press neww to start new game ";
+                    }
+                    else if(d[3] =="o" && d[4] == "o" && d[5] == "o")
+                    {
+                      alert("winner is the player who choosen o");
+                      dis();check++;
+                      document.getElementById("winner").innerHTML = "o is the winner . press neww to start new game ";
+                    }
+                    else if(d[6] == "o" && d[7] == "o" && d[8] == "o")
+                    {
+                      alert("winner is the player who choosen o");
+                      dis();check++;
+                      document.getElementById("winner").innerHTML = "o is the winner . press neww to start new game ";
+                    }
+                    else if(d[0] =="o" && d[3] == "o" && d[6] == "o")
+                    {
+                      alert("winner is the player who choosen o");
+                      dis();check++;
+                      document.getElementById("winner").innerHTML = "o is the winner . press neww to start new game ";
+                    }
+                    else if(d[1] =="o" && d[4] == "o" && d[7] == "o")
+                    {
+                      alert("winner is the player who choosen o");
+                      dis();check++;
+                      document.getElementById("winner").innerHTML = "o is the winner . press neww to start new game ";
+                    }
+                    else if(d[2] =="o" && d[5] == "o" && d[8] == "o")
+                    {
+                      alert("winner is the player who choosen o");
+                      dis();check++;
+                      document.getElementById("winner").innerHTML = "o is the winner . press neww to start new game ";
+                    }
+                    else if(d[0] =="o" && d[4] == "o" && d[8] == "o")
+                    {
+                      alert("winner is the player who choosen o");
+                      dis();check++;
+                      document.getElementById("winner").innerHTML = "o is the winner . press neww to start new game ";
+                    }
+                    else if(d[2] =="o" && d[4] == "o" && d[6] == "o")
+                    {
+                      alert("winner is the player who choosen o");
+                      dis();check++;
+                      document.getElementById("winner").innerHTML = "o is the winner . press neww to start new game ";
+                    }
+                }
+                if(check == 0 && b == 9 )
+                {
+                    //alert("winner is the player who choosen o");
+                      dis();
+                    document.getElementById("winner").innerHTML = "It's a draw well fighted. press neww to start new game "
+                }
+                
+            }
+            function dis()
+            {
+                for(var i =0 ; i<9 ; i++)
+                      {
+                          var m =""+i;
+                        document.getElementById(m).disabled = true;
+                      }
+            }
+        </script>
+    </body>
+</html>
